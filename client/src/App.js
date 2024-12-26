@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './Styles/App.css';
+import './Assets/Font/Font.css';
 import Register from './Pages/Register';
 import Task from './Pages/Task';
 import Schedule from './Pages/Schedule';
