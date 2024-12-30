@@ -12,16 +12,28 @@
 .bottom-button {
     flex: 1;
     text-align: center;
+    align-items: center;
     text-decoration: none; /* 링크 밑줄 제거 */
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 10px;
     font-size: 16px;
-    color: #000; /* 텍스트 색상 */
-    cursor: pointer;
+    color: #aaaaaa;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
 }
 
-.bottom-button:hover {
-    background-color: #e0e0e0;
+.menu-icon {
+    fill: #aaaaaa; /* SVG 기본 색상 */
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+/* 활성화된 버튼 스타일 */
+.bottom-button.active {
+    color: #383838; /* 텍스트 색 변경 */
+}
+
+.menu-icon.active-icon {
+    fill: #383838; /* SVG 색 변경 */
 }
