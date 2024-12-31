@@ -1,10 +1,14 @@
 import React from 'react';
+import { ReactComponent as Icon1 } from '../Assets/Images/volume-up.svg';
 
 const Register = () => {
     return (
-        <div>
-            <h1>등록 페이지</h1>
-        </div>
+        <>
+            <div className="box notice">
+                <Icon1 className="icon" />
+                <p>공지입니다</p>
+            </div>
+        </>
     );
 }
 
