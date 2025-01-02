@@ -39,7 +39,28 @@ const Register = () => {
                 </h2>
             </div>
             <div className="box register">
-
+                <div className="register__form">
+                    <p>성수기적용</p>
+                    <p>08:00 ~ 22:00</p>
+                </div>
+                <div className="register__form">
+                    <p>휴게시간</p>
+                    <p>12:00 ~ 13:00</p>
+                </div>
+                <div className="register__form">
+                    <h4>07:48~</h4>
+                    <div>
+                        <span>근무중</span>
+                    </div>
+                </div>
+                <div className='register__form btn_container'>
+                    <button>
+                        출근
+                    </button>
+                    <button>
+                        퇴근
+                    </button>
+                </div>
             </div>
         </>
     );

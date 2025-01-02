@@ -50,5 +50,76 @@
 
 .register {
     height: 300px;
-    background-color: #e9e9e9;
+    flex-direction: column;
 }
+
+.register__form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_container {
+    width: 80%;
+}
+
+.register__form p {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.register__form h4 {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.register__form div {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100px;
+}
+
+.register__form span {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 10px;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: #383838;
+    color: #ffffff;
+}
+
+.register__form button {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 5px 0;
+    margin: 20px 5px;
+    width: 40%;
+    height: 100px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: #383838 1px solid;
+}
+
