@@ -26,12 +26,36 @@
     width: 100%;
 }
 
-.times {
+.bord-box {
     height: 200px;
     border: #383838 1px solid;
-    justify-content: center;
     flex-direction: column;
     color: #383838;
+}
+
+.bord-box select {
+    appearance: none; /* 브라우저 기본 스타일 제거 */
+    -webkit-appearance: none; /* Safari 브라우저 지원 */
+    -moz-appearance: none; /* Firefox 브라우저 지원 */
+    background: none; /* 배경 제거 */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 80%;
+    color: #383838;
+    border: #383838 1px solid;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.bord-box select:focus {
+    outline: none;
+}
+
+.times {
+    justify-content: center;
 }
 
 .times h2 {
@@ -124,3 +148,8 @@
     border: #383838 1px solid;
 }
 
+.text {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}

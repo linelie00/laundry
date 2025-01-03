@@ -30,7 +30,7 @@ const Register = () => {
                 <Icon1 className="icon" />
                 <p>공지입니다</p>
             </div>
-            <div className="box times">
+            <div className="box bord-box times">
                 <h4>
                     {`${year}년 ${month}월 ${date}일 (${day})`}
                 </h4>
