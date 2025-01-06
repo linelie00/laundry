@@ -1,7 +1,7 @@
 .box {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
     margin: 20px;
     border-radius: 5px;
     width: 95%;
@@ -27,10 +27,21 @@
 }
 
 .bord-box {
-    height: 200px;
+    min-height: 200px;
     border: #383838 1px solid;
     flex-direction: column;
     color: #383838;
+    justify-content: center;
+}
+
+.bord-box p {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0;
+    margin: 5px 0;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
 }
 
 .custom-dropdown-container {
@@ -40,6 +51,7 @@
     font-size: 16px;
     align-items: center;
     flex-direction: column;
+    margin: 0 0 15px 0;
 }
 
 .custom-dropdown-selected {
@@ -120,6 +132,14 @@
     color: #383838;
 }
 
+.row-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #383838;
+}
+
 .btn_container {
     width: 80%;
 }
@@ -133,6 +153,28 @@
     height: 30px;
     text-align: center;
     align-items: center;
+    justify-content: center;
+}
+
+.row-form p {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 5px 0;
+    width: 140px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.row-form h4 {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    width: 140px;
+    align-items: center;
+    text-align: center;
     justify-content: center;
 }
 
@@ -181,6 +223,25 @@
     justify-content: center;
     border-radius: 10px;
     border: #383838 1px solid;
+}
+
+.row-form button {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 20px;
+    margin: 10px 5px 0 5px;
+    min-width: 100px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: #383838 1px solid;
+}
+
+.work button {
+    font-size: 24px;
+    height: 50px;
 }
 
 .text {

@@ -55,6 +55,31 @@ const TaskPage = () => {
                         </ul>
                     )}
                 </div>
+                <p>총 230벌</p>
+                <p>평균 20 / 시간 당</p>
+                <div className="row-form">
+                    <button>QR촬영</button>
+                    <button>선택</button>
+                </div>
+            </div>
+            <div className="box bord-box">
+                <div className="row-form">
+                    <h4>업무시간</h4>
+                    <h4>총업무시간</h4>
+                </div>
+                <div className="row-form">
+                    <p>13:40~15:40</p>
+                    <p>2:00</p>
+                </div>
+                <p>시간당</p>
+                <p>분당</p>
+                <div className="row-form work">
+                    <button>업무시작</button>
+                    <button>업무종료</button>
+                </div>
+            </div>
+            <div className="box text">
+                참 잘했어요
             </div>
         </>
     );
