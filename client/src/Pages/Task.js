@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const TaskPage = () => {
-    const [options, setOptions] = useState([]); // 드롭다운 옵션 목록
-    const [selectedOption, setSelectedOption] = useState(''); // 선택된 옵션
+    const [options, setOptions] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('선택해주세요');
 
     useEffect(() => {
         // 예시 데이터를 가져오는 함수
@@ -12,6 +13,9 @@ const TaskPage = () => {
                 { id: 1, label: '옵션 1' },
                 { id: 2, label: '옵션 2' },
                 { id: 3, label: '옵션 3' },
+                { id: 4, label: '옵션 4' },
+                { id: 5, label: '옵션 5' },
+                { id: 6, label: '옵션 6' },
             ];
             setOptions(exampleData); // 상태에 데이터 설정
         };
@@ -19,8 +23,9 @@ const TaskPage = () => {
         fetchData();
     }, []); // 컴포넌트가 처음 렌더링될 때 한 번 실행
 
-    const handleSelectChange = (event) => {
-        setSelectedOption(event.target.value); // 선택된 값 업데이트
+    const handleSelect = (option) => {
+        setSelectedOption(option.label);
+        setIsOpen(false); // 드롭다운 닫기
     };
 
     return (
@@ -29,21 +34,27 @@ const TaskPage = () => {
                 안녕하세요 00님!
             </div>
             <div className="box bord-box">
-                <select value={selectedOption} onChange={handleSelectChange}>
-                    <option value="" disabled>
-                        공정을 선택해주세요
-                    </option>
-                    {options.map((option) => (
-                        <option key={option.id} value={option.id}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-                {selectedOption && (
-                    <p>
-                        선택된 옵션: {options.find((opt) => opt.id.toString() === selectedOption)?.label}
-                    </p>
-                )}
+                <div className="custom-dropdown-container">
+                    <div
+                        className="custom-dropdown-selected"
+                        onClick={() => setIsOpen((prev) => !prev)}
+                    >
+                        {selectedOption}
+                    </div>
+                    {isOpen && (
+                        <ul className="custom-dropdown-options">
+                            {options.map((option) => (
+                                <li
+                                    key={option.id}
+                                    className="custom-dropdown-option"
+                                    onClick={() => handleSelect(option)}
+                                >
+                                    {option.label}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
         </>
     );

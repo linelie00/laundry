@@ -33,21 +33,56 @@
     color: #383838;
 }
 
-.bord-box select {
-    appearance: none; /* 브라우저 기본 스타일 제거 */
-    -webkit-appearance: none; /* Safari 브라우저 지원 */
-    -moz-appearance: none; /* Firefox 브라우저 지원 */
-    background: none; /* 배경 제거 */
+.custom-dropdown-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    font-size: 16px;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.custom-dropdown-selected {
     padding: 10px 20px;
-    margin: 10px;
     border-radius: 5px;
     width: 80%;
     color: #383838;
     border: #383838 1px solid;
     font-size: 12px;
     box-sizing: border-box;
+}
+
+/* 드롭다운 옵션 목록 스타일 */
+.custom-dropdown-options {
+    position: absolute;
+    top: 100%;
+    width: 80%;
+    margin-top: 2px;
+    padding: 0;
+    color: #383838;
+    border: #383838 1px solid;
+    font-size: 12px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    max-height: 200px; /* 스크롤이 필요한 경우 */
+    overflow-y: auto;
+    z-index: 1000;
+    background-color:#f5f5f5;
+}
+
+.custom-dropdown-options::-webkit-scrollbar {
+    display: none; /* 스크롤바 숨기기 */
+}
+
+/* 옵션 스타일 */
+.custom-dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.custom-dropdown-option:hover {
+    background-color: #f0f0f0;
 }
 
 .bord-box select:focus {
