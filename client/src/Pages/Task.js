@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ReactComponent as Icon1 } from '../Assets/Images/star.svg';
 
 const TaskPage = () => {
     const [options, setOptions] = useState([]);
@@ -30,8 +31,9 @@ const TaskPage = () => {
 
     return (
         <>
-            <div className="box text">
-                안녕하세요 00님!
+            <div className="box notice">
+                <Icon1 className="icon"/>
+                <p>안녕하세요 00님! 오늘 하루도 화이팅!</p>
             </div>
             <div className="box bord-box">
                 <div className="custom-dropdown-container">
@@ -79,7 +81,7 @@ const TaskPage = () => {
                 </div>
             </div>
             <div className="box text">
-                참 잘했어요
+                오늘 업무 총평: 참 잘했어요
             </div>
         </>
     );
