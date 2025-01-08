@@ -2,12 +2,8 @@
 .calendar-container {
     width: 90%;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
     color: #383838;
-    background-color: #e9e9e9;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 월 표시 */
@@ -24,22 +20,20 @@
     gap: 10px;
     background-color: #ffffff;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 /* 요일 헤더 스타일 */
 .calendar-day-header {
     font-weight: bold;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
     color: #383838;
-    background-color: #e9e9e9;
-    border-radius: 4px;
 }
 
 /* 캘린더 셀 */
 .calendar-cell {
-    height: 50px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,13 +50,12 @@
 
 /* 근무일 스타일 */
 .calendar-cell.workday {
-    background-color: #d9f7be; /* 연한 초록색 */
+    background-color: #bee6f7; /* 연한 초록색 */
     color: #383838;
 }
 
 /* 휴일 스타일 */
 .calendar-cell.holiday {
-    background-color: #ffa39e; /* 연한 빨간색 */
+    background-color: #ee8282; /* 연한 빨간색 */
     color: #ffffff;
-    font-weight: bold;
 }

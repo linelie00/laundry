@@ -49,27 +49,29 @@ const Schedule = () => {
     const days = generateCalendarDays();
 
     return (
-        <div className="calendar-container">
-            <h1>{`${monthName} ${year}`}</h1>
-            <div className="calendar-grid">
-                {/* 요일 표시 */}
-                {daysOfWeek.map((day, index) => (
-                    <div key={index} className="calendar-day-header">
-                        {day}
-                    </div>
-                ))}
+        <>
+            <div className="calendar-container">
+                <h1>{`${monthName} ${year}`}</h1>
+                <div className="calendar-grid">
+                    {/* 요일 표시 */}
+                    {daysOfWeek.map((day, index) => (
+                        <div key={index} className="calendar-day-header">
+                            {day}
+                        </div>
+                    ))}
 
-                {/* 날짜 표시 */}
-                {days.map((day, index) => (
-                    <div
-                        key={index}
-                        className={`calendar-cell ${day.type}`}
-                    >
-                        {day.date ? new Date(day.date).getDate() : ''}
-                    </div>
-                ))}
+                    {/* 날짜 표시 */}
+                    {days.map((day, index) => (
+                        <div
+                            key={index}
+                            className={`calendar-cell ${day.type}`}
+                        >
+                            {day.date ? new Date(day.date).getDate() : ''}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
