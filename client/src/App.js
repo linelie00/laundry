@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './Styles/App.css';
 import './Styles/Pages.css';
 import './Assets/Font/Font.css';
+import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Task from './Pages/Task';
 import Schedule from './Pages/Schedule';
@@ -15,7 +16,8 @@ function App() {
         <div className="App">
             <div className="wrap">
                 <Routes>
-                    <Route path="/" element={<Register />} />
+                    <Route path="/" element={<Login />} />
+                    <Route path="/Register" element={<Register />} />
                     <Route path="/task" element={<Task />} />
                     <Route path="/schedule" element={<Schedule />} />
                     <Route path="/profile" element={<Profile />} />

@@ -15,7 +15,7 @@ const BottomBar = () => {
     return (
         <div className="bottom-bar">
             <Link 
-                to="/" 
+                to="/register" 
                 className={`bottom-button ${isActive('/') ? 'active' : ''}`}
             >
                 <Icon1 className={`menu-icon ${isActive('/') ? 'active-icon' : ''}`} />
