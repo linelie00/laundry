@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.4.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.12.0",

@@ -1,8 +1,9 @@
-// 필요한 모듈 가져오기
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const { sequelize } = require('./models');
+const cookieParser = require('cookie-parser');
+const authRoute = require('./routes/authRoute');
 
 // Express 앱 생성
 const app = express();
@@ -18,15 +19,13 @@ sequelize.sync({ force: false })
     console.error('데이터베이스 연결 실패:', err);
   });
 
-  app.use(morgan('dev'));
-  app.use(express.static(path.join(__dirname, 'public')));
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: false }));
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-// 기본 라우트 정의
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+app.use('/api/users', userRoute);
 
 // 서버 시작
 app.listen(PORT, () => {
