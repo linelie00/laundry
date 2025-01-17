@@ -80,54 +80,60 @@ const Join = () => {
     };
 
     return (
-        <div className="login">
-            <h1>laundry</h1>
-            <h2>회원가입</h2>
-            <form onSubmit={handleJoin}>
-                <div>
+        <>
+            <div className="login">
+                <h1>laundry</h1>
+                <h2>회원가입</h2>
+                <form onSubmit={handleJoin}>
+                    <div>
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="아이디"
+                            value={formData.username}
+                            onChange={handleInputChange}
+                        />
+                        <button className="check" onClick={handleCheckDuplicate}>중복확인</button>
+                    </div>
                     <input
                         type="text"
-                        name="username"
-                        placeholder="아이디"
-                        value={formData.username}
+                        name="name"
+                        placeholder="이름"
+                        value={formData.name}
                         onChange={handleInputChange}
                     />
-                    <button className="check" onClick={handleCheckDuplicate}>중복확인</button>
-                </div>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="이름"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="text"
-                    name="nickname"
-                    placeholder="닉네임"
-                    value={formData.nickname}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="비밀번호"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="비밀번호 확인"
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">회원가입</button>
-            </form>
-            {error && <p className="error-message">{error}</p>}
-            {success && <p className="success-message">{success}</p>}
-            <p className="login-link" onClick={handleLoginClick}>로그인하기</p>
-        </div>
+                    <input
+                        type="text"
+                        name="nickname"
+                        placeholder="닉네임"
+                        value={formData.nickname}
+                        onChange={handleInputChange}
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="비밀번호"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                    />
+                    <input
+                        type="password"
+                        name="confirmPassword"
+                        placeholder="비밀번호 확인"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                    />
+                    <button type="submit">회원가입</button>
+                </form>
+                {error && <p className="error-message">{error}</p>}
+                {success && <p className="success-message">{success}</p>}
+                <p className="login-link" onClick={handleLoginClick}>로그인하기</p>
+            </div>
+            <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+        </>
     );
 };
 
