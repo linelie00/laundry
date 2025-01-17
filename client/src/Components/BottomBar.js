@@ -16,9 +16,9 @@ const BottomBar = () => {
         <div className="bottom-bar">
             <Link 
                 to="/register" 
-                className={`bottom-button ${isActive('/') ? 'active' : ''}`}
+                className={`bottom-button ${isActive('/register') ? 'active' : ''}`}
             >
-                <Icon1 className={`menu-icon ${isActive('/') ? 'active-icon' : ''}`} />
+                <Icon1 className={`menu-icon ${isActive('/register') ? 'active-icon' : ''}`} />
                 등록
             </Link>
             <Link 
