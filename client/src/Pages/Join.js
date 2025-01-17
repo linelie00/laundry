@@ -33,7 +33,7 @@ const Join = () => {
         setError(null);
 
         try {
-            const response = await axios.post('/user/check-duplicate', { username: formData.username });
+            const response = await axios.post('/user/check-username', { username: formData.username });
             if (response.data.success) {
                 alert('사용 가능한 아이디입니다.');
                 setIsUsernameChecked(true);
