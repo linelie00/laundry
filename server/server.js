@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const { sequelize } = require('./models');
 const cookieParser = require('cookie-parser');
-const authRoute = require('./routes/authRoute');
+const userRoute = require('./src/routes/userRoute');
 
 // Express 앱 생성
 const app = express();
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api/users', userRoute);
+app.use('/api/user', userRoute);
 
 // 서버 시작
 app.listen(PORT, () => {

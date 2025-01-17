@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const userService = require('../services/userService');
 const { secret, expiresIn } = require('../config/jwt');
-const userService = require('../services/userService');
 
 const checkUsernameAvailability = async (req, res) => {
   const { username } = req.body;
