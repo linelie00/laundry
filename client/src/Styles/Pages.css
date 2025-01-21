@@ -138,10 +138,12 @@
     align-items: center;
     justify-content: center;
     color: #383838;
+    
 }
 
 .btn_container {
     width: 80%;
+    gap: 20px;
 }
 
 .register__form p {
@@ -206,8 +208,12 @@
     justify-content: center;
     border-radius: 20px;
     box-sizing: border-box;
-    background-color: #383838;
+    background-color: #009cd9;
     color: #ffffff;
+}
+
+.register__form span .active {
+    background-color: #009cd9;
 }
 
 .register__form button {
@@ -221,8 +227,19 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+    display: flex;
     border-radius: 10px;
     border: #383838 1px solid;
+}
+
+.left-btn {
+    background-color: #009cd9;
+    color: #ffffff;
+}
+
+.right-btn {
+    background-color: #383838;
+    color: #ffffff;
 }
 
 .row-form button {

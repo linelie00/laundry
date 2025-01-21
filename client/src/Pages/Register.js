@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ReactComponent as Icon1 } from '../Assets/Images/volume-up.svg';
+import axios from '../Api';
 
 const Register = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
