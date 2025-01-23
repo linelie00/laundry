@@ -15,6 +15,7 @@ const Join = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const [isUsernameChecked, setIsUsernameChecked] = useState(false);
+    const [isUsernameValid, setIsUsernameValid] = useState(false); // 아이디 입력 여부 상태
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,6 +26,7 @@ const Join = () => {
 
         if (name === 'username') {
             setIsUsernameChecked(false); // 아이디 변경 시 중복 확인 상태 초기화
+            setIsUsernameValid(value.trim().length > 0); // 입력란에 텍스트가 있는지 확인
         }
     };
 
@@ -93,7 +95,13 @@ const Join = () => {
                             value={formData.username}
                             onChange={handleInputChange}
                         />
-                        <button className="check" onClick={handleCheckDuplicate}>중복확인</button>
+                        <button
+                            className={`${isUsernameValid ? 'active' : 'disabled'}`}
+                            onClick={handleCheckDuplicate}
+                            disabled={!isUsernameValid} // 비활성화 상태
+                        >
+                            중복확인
+                        </button>
                     </div>
                     <input
                         type="text"
@@ -129,9 +137,9 @@ const Join = () => {
                 {success && <p className="success-message">{success}</p>}
                 <p className="login-link" onClick={handleLoginClick}>로그인하기</p>
             </div>
-            <div class="ocean">
-                <div class="wave"></div>
-                <div class="wave"></div>
+            <div className="ocean">
+                <div className="wave"></div>
+                <div className="wave"></div>
             </div>
         </>
     );
