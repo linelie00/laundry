@@ -1,21 +1,12 @@
-const sequelize = require('./models').sequelize;
-const users = require('./models/TB_USERS');
-const auths = require('./models/TB_AUTHS');
+const { sequelize } = require('./models');
 
-async function initializeDatabase() {
+(async () => {
   try {
-    await sequelize.authenticate(); // DB 연결 테스트
-    console.log('DB 연결 성공!');
-
-    // Force: true로 설정하면 기존 테이블을 삭제하고 새로 생성합니다.
-    await sequelize.sync({ force: false });
-
+    await sequelize.sync({ force: true }); // 기존 테이블 유지하며 동기화
     console.log('테이블이 성공적으로 생성되었습니다.');
-    process.exit(); // 프로세스 종료
   } catch (error) {
-    console.error('테이블 생성 실패:', error);
-    process.exit(); // 오류 발생 시 프로세스 종료
+    console.error('테이블 생성 중 오류 발생:', error);
+  } finally {
+    process.exit(); // 스크립트 종료
   }
-}
-
-initializeDatabase();
+})();

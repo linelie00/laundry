@@ -1,12 +1,19 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 const { sequelize } = require('./models');
 const cookieParser = require('cookie-parser');
 const userRoute = require('./src/routes/userRoute');
 
 // Express 앱 생성
 const app = express();
+
+// CORS 설정
+app.use(cors({
+  origin: 'http://localhost:3000', // localhost:3000 허용
+  credentials: true // 쿠키를 사용하려면 필요
+}));
 
 // 포트 설정
 const PORT = 8080;

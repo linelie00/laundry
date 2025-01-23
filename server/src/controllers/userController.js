@@ -12,12 +12,12 @@ const checkUsernameAvailability = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, name, nickname, password } = req.body;
   const existingUser = await userService.findUserByUsername(username);
   if (existingUser) {
     return res.status(400).json({ message: 'Username is already taken' });
   }
-  const newUser = await userService.createUser(username, password);
+  const newUser = await userService.createUser(username, name, nickname, password);
   res.status(201).json({ message: 'User registered successfully', user: newUser });
 };
 

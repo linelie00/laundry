@@ -34,7 +34,7 @@ const Join = () => {
 
         try {
             const response = await axios.post('/user/check-username', { username: formData.username });
-            if (response.data.success) {
+            if (response.data.success || response.data.message === 'Username is available') {
                 alert('사용 가능한 아이디입니다.');
                 setIsUsernameChecked(true);
             } else {
