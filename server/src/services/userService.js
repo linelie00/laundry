@@ -1,7 +1,7 @@
 const { TB_USERS, TB_AUTHS } = require('../../models');
 
 const findUserByUsername = async (username) => {
-  return await TB_USERS.findOne({ where: { user_id: username } });
+  return await TB_USERS.findOne({ where: { username } });
 };
 
 const createUser = async (username, name, nickname, password) => {
@@ -14,7 +14,7 @@ const createUser = async (username, name, nickname, password) => {
 
   // 유저 생성
   return await TB_USERS.create({
-    user_id: username,
+    username,
     name,
     nickname,
     password,

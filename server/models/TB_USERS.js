@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   const TbUsers = sequelize.define('TB_USERS', {
-    user_id: {
+    username: {
       type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false,
