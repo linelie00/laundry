@@ -6,6 +6,7 @@ const { sequelize } = require('./models');
 const cookieParser = require('cookie-parser');
 const userRoute = require('./src/routes/userRoute');
 const noticeRoute = require('./src/routes/noticeRoute');
+const scheduleRoute = require('./src/routes/scheduleRoute');
 
 // Express 앱 생성
 const app = express();
