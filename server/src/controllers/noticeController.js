@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken');const noticeService = require('../services/noticeService');
+const jwt = require('jsonwebtoken');
+const noticeService = require('../services/noticeService');
 
 // 공지 생성
 exports.createNotice = async (req, res) => {
@@ -30,6 +31,17 @@ exports.getNoticeById = async (req, res) => {
       return res.status(404).json({ message: '공지사항을 찾을 수 없습니다.' });
     }
     res.status(200).json({ data: notice });
+  } catch (error) {
+    res.status(500).json({ message: '공지 조회 실패', error: error.message });
+  }
+};
+
+// 본인에게 할당된 모든 공지 조회
+exports.getMyNotices = async (req, res) => {
+  try {
+    const userId = req.user.id;  // 로그인된 사용자 ID 가져오기 (authMiddleware 사용 가정)
+    const notices = await noticeService.getNoticesForUser(userId);
+    res.status(200).json({ data: notices });
   } catch (error) {
     res.status(500).json({ message: '공지 조회 실패', error: error.message });
   }
