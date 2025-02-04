@@ -7,9 +7,9 @@ const Schedule = () => {
     useEffect(() => {
         // 예시 데이터
         const exampleData = [
-            { date: '2025-01-01', type: 'holiday' }, // 휴일
-            { date: '2025-01-02', type: 'workday' }, // 근무일
-            { date: '2025-01-03', type: 'workday' }, // 근무일
+            { date: '2025-02-01', type: 'holiday' }, // 휴일
+            { date: '2025-02-02', type: 'workday' }, // 근무일
+            { date: '2025-02-03', type: 'workday' }, // 근무일
         ];
 
         setCalendarData(exampleData);
@@ -51,7 +51,7 @@ const Schedule = () => {
     return (
         <>
             <div className="calendar-container">
-                <h1>{`${monthName} ${year}`}</h1>
+                <h1>{`${year}년 ${monthName}`}</h1>
                 <div className="calendar-grid">
                     {/* 요일 표시 */}
                     {daysOfWeek.map((day, index) => (
