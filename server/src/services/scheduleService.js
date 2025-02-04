@@ -44,3 +44,24 @@ exports.updateSchedule = async (scheduleId, updatedData) => {
 
   return await schedule.update(updatedData);
 };
+
+// 휴가 기간 동안의 휴가 데이터 추가
+exports.createVacation = async (employeeId, startDate, endDate, vacationType, status) => {
+    const vacationDays = [];
+    const current = new Date(startDate);
+  
+    while (current <= new Date(endDate)) {
+      vacationDays.push({
+        employee_id: employeeId,
+        date: new Date(current),
+        start_time: '09:00:00',  // 휴가 시작 시간 (고정)
+        end_time: '18:00:00',    // 휴가 종료 시간 (고정)
+        vacation_type: vacationType,
+        status: status || '대기',  // 기본 상태 설정
+      });
+  
+      current.setDate(current.getDate() + 1);  // 다음 날로 이동
+    }
+  
+    return await TB_VACATIONS.bulkCreate(vacationDays);
+  };

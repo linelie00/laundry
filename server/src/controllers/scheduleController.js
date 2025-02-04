@@ -41,3 +41,26 @@ exports.updateSchedule = async (req, res) => {
     res.status(500).json({ message: '스케줄 수정 중 오류 발생', error: error.message });
   }
 };
+
+// 휴가 추가
+exports.createVacation = async (req, res) => {
+    try {
+      const { employee_id, start_date, end_date, vacation_type, status } = req.body;
+  
+      await vacationService.createVacation(employee_id, start_date, end_date, vacation_type, status);
+      res.status(201).json({ message: '휴가가 성공적으로 추가되었습니다.' });
+    } catch (error) {
+      res.status(500).json({ message: '휴가 추가 중 오류 발생', error: error.message });
+    }
+  };
+
+//휴가 수정
+exports.updateVacation = async (req, res) => {
+  try {
+    const vacationId = req.params.id;
+    const updatedVacation = await vacationService.updateVacation(vacationId, req.body);
+    res.status(200).json({ message: '휴가가 수정되었습니다.', data: updatedVacation });
+  } catch (error) {
+    res.status(500).json({ message: '휴가 수정 중 오류 발생', error: error.message });
+  }
+};

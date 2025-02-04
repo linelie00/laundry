@@ -15,4 +15,10 @@ router.post('/bulk', scheduleController.createBulkSchedules);
 // 스케줄 수정
 router.put('/:id', scheduleController.updateSchedule);
 
+// 휴가 추가
+router.post('/vacations', scheduleController.createVacation);
+
+// 휴가 수정
+router.put('/vacations/:id', scheduleController.updateVacation);
+
 module.exports = router;
