@@ -5,6 +5,7 @@ const cors = require('cors');
 const { sequelize } = require('./models');
 const cookieParser = require('cookie-parser');
 const userRoute = require('./src/routes/userRoute');
+const noticeRoute = require('./src/routes/noticeRoute');
 
 // Express 앱 생성
 const app = express();
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/user', userRoute);
+app.use('/api/notice', noticeRoute);
 
 // 서버 시작
 app.listen(PORT, () => {
