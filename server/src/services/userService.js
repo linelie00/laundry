@@ -1,10 +1,10 @@
 const { TB_USERS, TB_AUTHS } = require('../../models');
 
-const findUserByUsername = async (username) => {
-  return await TB_USERS.findOne({ where: { username } });
+const findUserByUsername = async (user_id) => {
+  return await TB_USERS.findOne({ where: { user_id } });
 };
 
-const createUser = async (username, name, nickname, password) => {
+const createUser = async (user_id, name, nickname, password) => {
   // 기본 권한 가져오기
   const defaultAuth = await TB_AUTHS.findOne({ where: { auth_code: 'USER' } }); // 'USER'는 일반 유저 권한 코드
 
@@ -14,7 +14,7 @@ const createUser = async (username, name, nickname, password) => {
 
   // 유저 생성
   return await TB_USERS.create({
-    username,
+    user_id,
     name,
     nickname,
     password,

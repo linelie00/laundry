@@ -6,7 +6,7 @@ import '../Styles/Auth.css';
 const Login = () => {
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({
-        username: '',
+        user_id: '',
         password: ''
     });
     const [error, setError] = useState(null);
@@ -52,9 +52,9 @@ const Login = () => {
                 <form onSubmit={handleLogin}>
                     <input 
                         type="text" 
-                        name="username"
+                        name="user_id"
                         placeholder="아이디" 
-                        value={credentials.username}
+                        value={credentials.user_id}
                         onChange={handleInputChange}
                     />
                     <input 

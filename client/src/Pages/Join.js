@@ -6,7 +6,7 @@ import '../Styles/Auth.css';
 const Join = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        username: '',
+        user_id: '',
         name: '',
         nickname: '',
         password: '',
@@ -24,7 +24,7 @@ const Join = () => {
             [name]: value
         });
 
-        if (name === 'username') {
+        if (name === 'user_id') {
             setIsUsernameChecked(false); // 아이디 변경 시 중복 확인 상태 초기화
             setIsUsernameValid(value.trim().length > 0); // 입력란에 텍스트가 있는지 확인
         }
@@ -35,7 +35,7 @@ const Join = () => {
         setError(null);
 
         try {
-            const response = await axios.post('/user/check-username', { username: formData.username });
+            const response = await axios.post('/user/check-username', { user_id: formData.user_id });
             if (response.data.success || response.data.message === 'Username is available') {
                 alert('사용 가능한 아이디입니다.');
                 setIsUsernameChecked(true);
@@ -90,7 +90,7 @@ const Join = () => {
                     <div>
                         <input
                             type="text"
-                            name="username"
+                            name="user_id"
                             placeholder="아이디"
                             value={formData.username}
                             onChange={handleInputChange}

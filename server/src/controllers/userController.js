@@ -3,8 +3,8 @@ const userService = require('../services/userService');
 const { secret, expiresIn } = require('../config/jwt');
 
 const checkUsernameAvailability = async (req, res) => {
-  const { username } = req.body;
-  const user = await userService.findUserByUsername(username);
+  const { user_id } = req.body;
+  const user = await userService.findUserByUsername(user_id);
   if (user) {
     return res.status(400).json({ message: 'Username is already taken' });
   }
@@ -12,25 +12,25 @@ const checkUsernameAvailability = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { username, name, nickname, password } = req.body;
-  const existingUser = await userService.findUserByUsername(username);
+  const { user_id, name, nickname, password } = req.body;
+  const existingUser = await userService.findUserByUsername(user_id);
   if (existingUser) {
     return res.status(400).json({ message: 'Username is already taken' });
   }
-  const newUser = await userService.createUser(username, name, nickname, password);
+  const newUser = await userService.createUser(user_id, name, nickname, password);
   res.status(201).json({ message: 'User registered successfully', user: newUser });
 };
 
 const loginUser = async (req, res) => {
-    const { username, password } = req.body;
-    const user = await userService.findUserByUsername(username);
+    const { user_id, password } = req.body;
+    const user = await userService.findUserByUsername(user_id);
   
     if (!user || user.password !== password) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
   
     // JWT 토큰 생성
-    const token = jwt.sign({ id: user.id, username: user.username }, secret, { expiresIn });
+    const token = jwt.sign({ user_id: user.user_id }, secret, { expiresIn });
   
     // HTTP-Only 쿠키로 토큰 저장
     res.cookie('auth_token', token, {
