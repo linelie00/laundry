@@ -1,4 +1,5 @@
 const express = require('express');
+const { specs, swaggerUi } = require('./swagger');
 const path = require('path');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -11,6 +12,7 @@ const processRoute = require('./src/routes/processRoute');
 
 // Express 앱 생성
 const app = express();
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // CORS 설정
 app.use(cors({
@@ -42,5 +44,6 @@ app.use('/api/process', processRoute);
 
 // 서버 시작
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`API docs available at http://localhost:${PORT}/api-docs`);
 });

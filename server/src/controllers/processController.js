@@ -1,5 +1,38 @@
 const processService = require('../services/processService');
+/**
+ * @swagger
+ * tags:
+ *   name: Processes
+ *   description: 업무 공정 관리 API
+ */
 
+/**
+ * @swagger
+ * /processes:
+ *   post:
+ *     summary: 새로운 업무 공정 추가
+ *     tags: [Processes]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: 공정 이름
+ *                 example: 포장 공정
+ *               location:
+ *                 type: string
+ *                 description: 공정 위치
+ *                 example: 1번 공정실
+ *     responses:
+ *       201:
+ *         description: 공정이 성공적으로 추가됨
+ *       500:
+ *         description: 서버 오류
+ */
 // 업무 공정 추가
 exports.createProcess = async (req, res) => {
   try {
