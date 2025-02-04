@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const userRoute = require('./src/routes/userRoute');
 const noticeRoute = require('./src/routes/noticeRoute');
 const scheduleRoute = require('./src/routes/scheduleRoute');
+const processRoute = require('./src/routes/processRoute');
 
 // Express 앱 생성
 const app = express();
@@ -36,6 +37,8 @@ app.use(cookieParser());
 
 app.use('/api/user', userRoute);
 app.use('/api/notice', noticeRoute);
+app.use('/api/schedule', scheduleRoute);
+app.use('/api/process', processRoute);
 
 // 서버 시작
 app.listen(PORT, () => {
