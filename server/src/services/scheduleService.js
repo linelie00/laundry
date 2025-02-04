@@ -65,3 +65,23 @@ exports.createVacation = async (employeeId, startDate, endDate, vacationType, st
   
     return await TB_VACATIONS.bulkCreate(vacationDays);
   };
+
+// 휴가 수정
+exports.updateVacation = async (vacationId, updatedData) => {
+    const vacation = await TB_VACATIONS.findByPk(vacationId);
+    if (!vacation) {
+      throw new Error('휴가를 찾을 수 없습니다.');
+    }
+  
+    return await vacation.update(updatedData);
+  };
+
+// 휴가 삭제
+exports.deleteVacation = async (vacationId) => {
+    const vacation = await TB_VACATIONS.findByPk(vacationId);
+    if (!vacation) {
+      throw new Error('휴가를 찾을 수 없습니다.');
+    }
+  
+    return await vacation.destroy();
+  };

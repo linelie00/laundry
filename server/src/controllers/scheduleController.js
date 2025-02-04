@@ -64,3 +64,14 @@ exports.updateVacation = async (req, res) => {
     res.status(500).json({ message: '휴가 수정 중 오류 발생', error: error.message });
   }
 };
+
+//휴가 삭제
+exports.deleteVacation = async (req, res) => {
+  try {
+    const vacationId = req.params.id;
+    await vacationService.deleteVacation(vacationId);
+    res.status(200).json({ message: '휴가가 삭제되었습니다.' });
+  } catch (error) {
+    res.status(500).json({ message: '휴가 삭제 중 오류 발생', error: error.message });
+  }
+};
