@@ -22,4 +22,7 @@ router.post('/vacations', authMiddleware, scheduleController.createVacation);
 // 휴가 수정
 router.put('/vacations/:id', authMiddleware, scheduleController.updateVacation);
 
+// 휴가 삭제
+router.delete('/vacations/:id', authMiddleware, scheduleController.deleteVacation);
+
 module.exports = router;
