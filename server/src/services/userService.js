@@ -22,4 +22,8 @@ const createUser = async (user_id, name, nickname, password) => {
   });
 };
 
-module.exports = { findUserByUsername, createUser };
+const deleteUser = async (user_id) => {
+  return await TB_USERS.destroy({ where: { user_id } });
+};
+
+module.exports = { findUserByUsername, createUser, deleteUser };
