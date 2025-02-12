@@ -11,6 +11,7 @@ module.exports = (sequelize) => {
     auth_code: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "USER",
       comment: '권한 코드',
     },
     name: {
