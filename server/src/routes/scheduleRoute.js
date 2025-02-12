@@ -1,24 +1,25 @@
 const express = require('express');
+const authMiddleware = require("../middlewares/authMiddleware");
 const scheduleController = require('../controllers/scheduleController');
 
 const router = express.Router();
 
 // 캘린더 데이터 조회
-router.get('/calendar', scheduleController.getCalendarData);
+router.get('/calendar', authMiddleware, scheduleController.getCalendarData);
 
 // 단일 스케줄 추가
-router.post('/', scheduleController.createSchedule);
+router.post('/', authMiddleware, scheduleController.createSchedule);
 
 // 반복(일괄) 스케줄 추가
-router.post('/bulk', scheduleController.createBulkSchedules);
+router.post('/bulk', authMiddleware, scheduleController.createBulkSchedules);
 
 // 스케줄 수정
-router.put('/:id', scheduleController.updateSchedule);
+router.put('/:id', authMiddleware, scheduleController.updateSchedule);
 
 // 휴가 추가
-router.post('/vacations', scheduleController.createVacation);
+router.post('/vacations', authMiddleware, scheduleController.createVacation);
 
 // 휴가 수정
-router.put('/vacations/:id', scheduleController.updateVacation);
+router.put('/vacations/:id', authMiddleware, scheduleController.updateVacation);
 
 module.exports = router;

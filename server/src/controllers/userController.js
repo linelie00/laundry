@@ -22,25 +22,21 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    const { user_id, password } = req.body;
-    const user = await userService.findUserByUsername(user_id);
-  
-    if (!user || user.password !== password) {
-      return res.status(401).json({ message: 'Invalid username or password' });
-    }
-  
-    // JWT 토큰 생성
-    const token = jwt.sign({ user_id: user.user_id }, secret, { expiresIn });
-  
-    // HTTP-Only 쿠키로 토큰 저장
-    res.cookie('auth_token', token, {
-      httpOnly: true, // JavaScript에서 접근 불가능
-      secure: false,  // HTTPS에서만 작동 (개발 시 false, 배포 시 true)
-      sameSite: 'strict', // CSRF 방지
-      maxAge: 60 * 60 * 1000, // 1시간
-    });
-  
-    res.status(200).json({ message: 'Login successful' });
+  const { user_id, password } = req.body;
+  const user = await userService.findUserByUsername(user_id);
+
+  if (!user || user.password !== password) {
+    return res.status(401).json({ message: 'Invalid username or password' });
+  }
+
+  // JWT 토큰 생성
+  const token = jwt.sign({ user_id: user.user_id }, secret, { expiresIn });
+
+  // ✅ 클라이언트로 토큰 반환
+  res.status(200).json({ 
+    message: 'Login successful', 
+    token 
+  });
 };
 
 const logoutUser = (req, res) => {

@@ -38,7 +38,8 @@ app.use('/api/process', processRoute);
 (async () => {
   try {
     // ✅ 데이터베이스 동기화
-    await sequelize.sync({ alter: true });
+    //await sequelize.sync({ alter: true });
+    await sequelize.sync({ force: false });
     console.log("✅ 테이블 동기화 완료 (새 컬럼 자동 추가)");
 
     // ✅ 기본 권한 데이터 추가

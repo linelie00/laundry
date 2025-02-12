@@ -1,19 +1,22 @@
-const jwt = require('jsonwebtoken');
-const { secret } = require('../config/jwt');
+const jwt = require("jsonwebtoken");
+const { secret } = require("../config/jwt");
 
-const authenticateToken = (req, res, next) => {
-  const token = req.cookies.auth_token; // HTTP-Only 쿠키에서 토큰 읽기
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' });
+const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
   }
 
+  const token = authHeader.split(" ")[1]; // "Bearer <TOKEN>"에서 토큰만 추출
+
   try {
-    const user = jwt.verify(token, secret);
-    req.user = user; // 사용자 정보를 요청 객체에 저장
+    const decoded = jwt.verify(token, secret);
+    req.user = decoded; // 요청 객체에 사용자 정보 추가
     next();
-  } catch (err) {
-    return res.status(403).json({ message: 'Forbidden' });
+  } catch (error) {
+    return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };
 
-module.exports = authenticateToken;
+module.exports = authMiddleware;
