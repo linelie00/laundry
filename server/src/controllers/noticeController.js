@@ -10,7 +10,7 @@ const noticeService = require('../services/noticeService');
 
 /**
  * @swagger
- * /notices:
+ * /api/notices:
  *   post:
  *     summary: 공지 생성
  *     tags: [Notices]
@@ -59,7 +59,7 @@ exports.createNotice = async (req, res) => {
 
 /**
  * @swagger
- * /notices:
+ * /api/notices:
  *   get:
  *     summary: 모든 공지 조회
  *     tags: [Notices]
@@ -82,7 +82,7 @@ exports.getAllNotices = async (req, res) => {
 
 /**
  * @swagger
- * /notices/{id}:
+ * /api/notices/{id}:
  *   get:
  *     summary: 특정 공지 조회
  *     tags: [Notices]
@@ -118,7 +118,7 @@ exports.getNoticeById = async (req, res) => {
 
 /**
  * @swagger
- * /notices/my:
+ * /api/notices/my:
  *   get:
  *     summary: 본인에게 할당된 모든 공지 조회
  *     tags: [Notices]
