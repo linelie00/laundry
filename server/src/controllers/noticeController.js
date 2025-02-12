@@ -1,5 +1,11 @@
 const jwt = require('jsonwebtoken');
 const noticeService = require('../services/noticeService');
+/**
+ * @swagger
+ * tags:
+ *  name: Notices
+ * description: 공지사항 관리 API
+ */
 
 // 공지 생성
 exports.createNotice = async (req, res) => {
