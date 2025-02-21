@@ -10,6 +10,7 @@ const userRoute = require('./src/routes/userRoute');
 const noticeRoute = require('./src/routes/noticeRoute');
 const scheduleRoute = require('./src/routes/scheduleRoute');
 const processRoute = require('./src/routes/processRoute');
+const workRoutes = require('./src/routes/workRoute');
 
 const app = express();
 const PORT = 8080; // ✅ 포트 변수 위치 변경
@@ -34,6 +35,7 @@ app.use('/api/user', userRoute);
 app.use('/api/notice', noticeRoute);
 app.use('/api/schedule', scheduleRoute);
 app.use('/api/process', processRoute);
+app.use('/works', workRoutes);
 
 (async () => {
   try {
